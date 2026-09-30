@@ -1,0 +1,114 @@
+{
+  "caseId": "F02",
+  "corp_code": "SYN00002",
+  "corp_name": "가상B(합성)",
+  "description": "다부문(DX·DS) + 성별합계 행, 상세 합과 일치(삼성전자형)",
+  "year": 2025,
+  "fsDiv": "OFS",
+  "emp": [
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "남",
+      "fo_bbm": "DX",
+      "sm": "300",
+      "fyer_salary_totamt": "-",
+      "jan_salary_am": "-",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "여",
+      "fo_bbm": "DX",
+      "sm": "100",
+      "fyer_salary_totamt": "-",
+      "jan_salary_am": "-",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "남",
+      "fo_bbm": "DS",
+      "sm": "500",
+      "fyer_salary_totamt": "-",
+      "jan_salary_am": "-",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "여",
+      "fo_bbm": "DS",
+      "sm": "200",
+      "fyer_salary_totamt": "-",
+      "jan_salary_am": "-",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "남",
+      "fo_bbm": "성별합계",
+      "sm": "800",
+      "fyer_salary_totamt": "80,000,000,000",
+      "jan_salary_am": "105,000,000",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000002",
+      "corp_cls": "Y",
+      "sexdstn": "여",
+      "fo_bbm": "성별합계",
+      "sm": "300",
+      "fyer_salary_totamt": "30,000,000,000",
+      "jan_salary_am": "92,000,000",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    }
+  ],
+  "revenue": {
+    "OFS": [
+      {
+        "rcept_no": "88880000000002",
+        "bsns_year": "2025",
+        "sj_div": "BS",
+        "sj_nm": "재무상태표",
+        "account_id": "ifrs-full_Assets",
+        "account_nm": "자산총계",
+        "thstrm_amount": "900000000000",
+        "currency": "KRW"
+      },
+      {
+        "rcept_no": "88880000000002",
+        "bsns_year": "2025",
+        "sj_div": "IS",
+        "sj_nm": "손익계산서",
+        "account_id": "ifrs-full_Revenue",
+        "account_nm": "매출액",
+        "thstrm_amount": "440000000000",
+        "currency": "KRW"
+      }
+    ]
+  },
+  "expect": {
+    "structure": "C",
+    "headcount": "OK",
+    "headcountValue": 1100,
+    "payroll": "OK",
+    "payrollValue": 110000000000,
+    "perHeadPayroll": "OK",
+    "perHeadValue": 100000000,
+    "revenuePerHead": "OK",
+    "revenuePerHeadValue": 400000000,
+    "overall": "MISSING",
+    "maleAvg": 105000000,
+    "femaleAvg": 92000000
+  }
+}

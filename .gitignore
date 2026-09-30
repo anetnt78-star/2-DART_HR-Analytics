@@ -1,0 +1,8 @@
+node_modules
+.next
+.env
+.env.local
+data/corp-index.json
+data/raw/
+*.tsbuildinfo
+next-env.d.ts

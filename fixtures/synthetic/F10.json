@@ -1,0 +1,69 @@
+{
+  "caseId": "F10",
+  "corp_code": "SYN00010",
+  "corp_name": "가상J(합성)",
+  "description": "성별합계 행만 있고 전체 평균 행 없음",
+  "year": 2025,
+  "fsDiv": "OFS",
+  "emp": [
+    {
+      "rcept_no": "99990000000010",
+      "corp_cls": "Y",
+      "sexdstn": "남",
+      "fo_bbm": "성별합계",
+      "sm": "500",
+      "fyer_salary_totamt": "50,000,000,000",
+      "jan_salary_am": "110,000,000",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000010",
+      "corp_cls": "Y",
+      "sexdstn": "여",
+      "fo_bbm": "성별합계",
+      "sm": "500",
+      "fyer_salary_totamt": "40,000,000,000",
+      "jan_salary_am": "85,000,000",
+      "rm": "-",
+      "stlm_dt": "2025-12-31"
+    }
+  ],
+  "revenue": {
+    "OFS": [
+      {
+        "rcept_no": "88880000000010",
+        "bsns_year": "2025",
+        "sj_div": "BS",
+        "sj_nm": "재무상태표",
+        "account_id": "ifrs-full_Assets",
+        "account_nm": "자산총계",
+        "thstrm_amount": "900000000000",
+        "currency": "KRW"
+      },
+      {
+        "rcept_no": "88880000000010",
+        "bsns_year": "2025",
+        "sj_div": "IS",
+        "sj_nm": "손익계산서",
+        "account_id": "ifrs-full_Revenue",
+        "account_nm": "매출액",
+        "thstrm_amount": "250000000000",
+        "currency": "KRW"
+      }
+    ]
+  },
+  "expect": {
+    "structure": "T",
+    "headcount": "OK",
+    "headcountValue": 1000,
+    "payroll": "OK",
+    "payrollValue": 90000000000,
+    "perHeadPayroll": "OK",
+    "perHeadValue": 90000000,
+    "revenuePerHead": "OK",
+    "overall": "MISSING",
+    "maleAvg": 110000000,
+    "femaleAvg": 85000000
+  }
+}

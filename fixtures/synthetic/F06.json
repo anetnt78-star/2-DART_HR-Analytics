@@ -1,0 +1,67 @@
+{
+  "caseId": "F06",
+  "corp_code": "SYN00006",
+  "corp_name": "가상F(합성)",
+  "description": "비고 \"단위: 백만원\" 전 행 일관",
+  "year": 2025,
+  "fsDiv": "OFS",
+  "emp": [
+    {
+      "rcept_no": "99990000000006",
+      "corp_cls": "Y",
+      "sexdstn": "남",
+      "fo_bbm": "본사부문",
+      "sm": "600",
+      "fyer_salary_totamt": "60,000",
+      "jan_salary_am": "100",
+      "rm": "단위: 백만원",
+      "stlm_dt": "2025-12-31"
+    },
+    {
+      "rcept_no": "99990000000006",
+      "corp_cls": "Y",
+      "sexdstn": "여",
+      "fo_bbm": "본사부문",
+      "sm": "400",
+      "fyer_salary_totamt": "32,000",
+      "jan_salary_am": "80",
+      "rm": "단위: 백만원",
+      "stlm_dt": "2025-12-31"
+    }
+  ],
+  "revenue": {
+    "OFS": [
+      {
+        "rcept_no": "88880000000006",
+        "bsns_year": "2025",
+        "sj_div": "BS",
+        "sj_nm": "재무상태표",
+        "account_id": "ifrs-full_Assets",
+        "account_nm": "자산총계",
+        "thstrm_amount": "900000000000",
+        "currency": "KRW"
+      },
+      {
+        "rcept_no": "88880000000006",
+        "bsns_year": "2025",
+        "sj_div": "IS",
+        "sj_nm": "손익계산서",
+        "account_id": "ifrs-full_Revenue",
+        "account_nm": "매출액",
+        "thstrm_amount": "300000000000",
+        "currency": "KRW"
+      }
+    ]
+  },
+  "expect": {
+    "structure": "A",
+    "headcount": "OK",
+    "payroll": "OK",
+    "payrollValue": 92000000000,
+    "perHeadPayroll": "OK",
+    "perHeadValue": 92000000,
+    "revenuePerHead": "OK",
+    "maleAvg": 100000000,
+    "femaleAvg": 80000000
+  }
+}

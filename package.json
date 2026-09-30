@@ -1,0 +1,33 @@
+{
+  "name": "hr-analytics-agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "check:synthetic": "vitest run",
+    "check:dart": "tsx --env-file=.env scripts/check-dart.ts",
+    "check:openai": "tsx --env-file=.env scripts/check-openai.ts",
+    "inspect:emp": "tsx --env-file=.env scripts/inspect-emp.ts",
+    "build:corp-index": "tsx --env-file=.env scripts/build-corp-index.ts"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0",
+    "fflate": "^0.8.2",
+    "next": "^15.1.0",
+    "openai": "^4.77.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  }
+}
