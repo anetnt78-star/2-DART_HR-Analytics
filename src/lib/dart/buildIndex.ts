@@ -5,7 +5,7 @@ import { XMLParser } from 'fast-xml-parser';
 import { DartError, dartKey, explainStatus } from './client';
 import { CORP_INDEX_PATH } from './corpIndex';
 
-/** corpCode.xml(zip)을 받아 상장사(주식코드 있음)만 추린 JSON 인덱스를 data/corp-index.json에 저장한다. */
+/** corpCode.xml(zip)을 받아 상장사·비상장(유한회사 등) 전체를 담은 JSON 인덱스를(주식코드는 상장사만 채워짐) data/corp-index.json에 저장한다. */
 export async function buildCorpIndex(): Promise<{ total: number; listed: number; path: string }> {
   const key = dartKey();
   if (!key) throw new DartError('NO_KEY', 'OPENDART_API_KEY가 비어 있습니다.');
@@ -30,10 +30,12 @@ export async function buildCorpIndex(): Promise<{ total: number; listed: number;
     result?: { list?: Array<{ corp_code: string; corp_name: string; stock_code?: string }> };
   };
   const list = parsed.result?.list ?? [];
-  const corps = list
-    .filter((c) => c.stock_code && String(c.stock_code).trim() !== '')
-    .map((c) => ({ code: String(c.corp_code).padStart(8, '0'), name: String(c.corp_name), stock: String(c.stock_code).trim() }));
+  const corps = list.map((c) => ({
+    code: String(c.corp_code).padStart(8, '0'),
+    name: String(c.corp_name),
+    stock: String(c.stock_code ?? '').trim(),
+  }));
   fs.mkdirSync(path.dirname(CORP_INDEX_PATH), { recursive: true });
   fs.writeFileSync(CORP_INDEX_PATH, JSON.stringify({ builtAt: new Date().toISOString(), corps }));
-  return { total: list.length, listed: corps.length, path: CORP_INDEX_PATH };
+  return { total: list.length, listed: corps.filter((c) => c.stock).length, path: CORP_INDEX_PATH };
 }

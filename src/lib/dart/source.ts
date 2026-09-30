@@ -74,7 +74,7 @@ export const liveSource: DataSource = {
     if (/^\d{8}$/.test(s)) return { companies: [{ code: s, name: corpNameFromIndex(s) ?? `고유번호 ${s}` }] };
     const found = searchCorpIndex(s);
     if (found === null) {
-      return { companies: [], hint: '상장사 인덱스가 없습니다. 터미널에서 `npm run build:corp-index`를 실행하거나 8자리 고유번호를 직접 입력하세요.' };
+      return { companies: [], hint: '기업 인덱스가 없습니다. 터미널에서 `npm run build:corp-index`를 실행하거나 8자리 고유번호를 직접 입력하세요.' };
     }
     return { companies: found };
   },

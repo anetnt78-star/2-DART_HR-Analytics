@@ -25,18 +25,15 @@ export function searchCorpIndex(q: string, limit = 15): CompanyInfo[] | null {
   if (!idx) return null;
   const s = q.trim().toLowerCase();
   if (!s) return [];
-  const exact: CompanyInfo[] = [];
-  const starts: CompanyInfo[] = [];
-  const contains: CompanyInfo[] = [];
+  // 일치도(정확 > 접두 > 포함) 순, 같은 일치도에서는 상장사가 비상장보다 앞에 온다.
+  const buckets: CompanyInfo[][] = [[], [], [], [], [], []];
   for (const c of idx.corps) {
     const n = c.name.toLowerCase();
-    const info = { code: c.code, name: c.name, stock: c.stock };
-    if (c.stock === s) exact.push(info);
-    else if (n === s) exact.push(info);
-    else if (n.startsWith(s)) starts.push(info);
-    else if (n.includes(s)) contains.push(info);
+    const tier = c.stock === s || n === s ? 0 : n.startsWith(s) ? 1 : n.includes(s) ? 2 : -1;
+    if (tier < 0) continue;
+    buckets[c.stock ? tier : tier + 3].push({ code: c.code, name: c.name, stock: c.stock || undefined });
   }
-  return [...exact, ...starts, ...contains].slice(0, limit);
+  return buckets.flat().slice(0, limit);
 }
 
 export function corpNameFromIndex(code: string): string | null {
